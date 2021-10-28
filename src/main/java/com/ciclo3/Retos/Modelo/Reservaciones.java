@@ -3,12 +3,14 @@ package com.ciclo3.Retos.Modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -35,7 +37,9 @@ public class Reservaciones implements Serializable{
     @JsonIgnoreProperties({"reservations","messages"})
     private Cliente client;
     
-    private String score;
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservations")
+    @JsonIgnoreProperties("reservations")   
+    private Score score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -85,11 +89,11 @@ public class Reservaciones implements Serializable{
         this.client = client;
     }
 
-    public String getScore() {
+    public Score getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Score score) {
         this.score = score;
     }
 }

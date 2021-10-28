@@ -58,5 +58,7 @@ public class Categoria implements Serializable{
 
     public void setQuadbikes(List<Quadbike> quadbikes) {
         this.quadbikes = quadbikes;
-    }   
+    }
+
+    
 }
