@@ -2,7 +2,7 @@ traerInformacion();
 
 function traerInformacion(){
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/all",
+        url:"http://129.151.101.157:8080/api/Reservation/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -52,7 +52,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
    if (validar()){
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/save",
+        url:"http://129.151.101.157:8080/api/Reservation/save",
         type:"POST",
         data:dataToSend,
         datatype:"JSON",
@@ -80,7 +80,7 @@ function editarInformacion(){
     let dataToSend=JSON.stringify(myData);
     if (validar()){
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/update",
+        url:"http://129.151.101.157:8080/api/Reservation/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -101,7 +101,7 @@ function borrarElemento(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/"+idElemento,
+        url:"http://129.151.101.157:8080/api/Reservation/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -172,7 +172,7 @@ function obtenerItemEspecifico(idItem){
     alert("YA PUEDES SELECCIONAR LAS FECHAS")
     $.ajax({
         dataType: 'json',
-        url:"http://localhost:8080/api/Reservation/"+idItem,
+        url:"http://129.151.101.157:8080/api/Reservation/"+idItem,
         type:'GET',
         success:function(response) {
           console.log(response);
@@ -196,7 +196,7 @@ function obtenerItemEspecifico(idItem){
   
   function traerClient(){
     $.ajax({
-        url:"http://localhost:8080/api/Client/all",
+        url:"http://129.151.101.157:8080/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -221,7 +221,7 @@ function listarClient(items){
 
 function traerQuadbike(){
     $.ajax({
-        url:"http://localhost:8080/api/Quadbike/all",
+        url:"http://129.151.101.157:8080/api/Quadbike/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
