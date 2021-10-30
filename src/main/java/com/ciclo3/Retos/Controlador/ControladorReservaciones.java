@@ -6,6 +6,8 @@
 package com.ciclo3.Retos.Controlador;
 
 import com.ciclo3.Retos.Modelo.Reservaciones;
+import com.ciclo3.Retos.Reportes.ContadorClientes;
+import com.ciclo3.Retos.Reportes.StatusReservas;
 import com.ciclo3.Retos.Servicios.ServiciosReservaciones;
 import java.util.List;
 import java.util.Optional;
@@ -60,5 +62,20 @@ public class ControladorReservaciones {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int reservacionesId){
         return serviciosReservaciones.deleteReservaciones(reservacionesId);
+    }
+    
+    @GetMapping("/report-status")
+    public StatusReservas getReservas() {
+        return serviciosReservaciones.getReporteStatusReservaciones();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservaciones> getReservasTiempo(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo) {
+        return serviciosReservaciones.getReportesTiempoReservaciones(dateOne, dateTwo);
+    }
+
+    @GetMapping("/report-clients")
+    public List<ContadorClientes> getClientes() {
+        return serviciosReservaciones.servicioTopClientes();
     }
 }

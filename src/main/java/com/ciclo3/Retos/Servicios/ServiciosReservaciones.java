@@ -6,7 +6,13 @@
 package com.ciclo3.Retos.Servicios;
 
 import com.ciclo3.Retos.Modelo.Reservaciones;
+import com.ciclo3.Retos.Reportes.ContadorClientes;
+import com.ciclo3.Retos.Reportes.StatusReservas;
 import com.ciclo3.Retos.Repositorio.RepositorioReservaciones;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,4 +77,40 @@ public class ServiciosReservaciones {
         }).orElse(false);
         return aBoolean;
     }
+    /**
+     * funcion para hacer el reporte del estatus de las reservaciones
+     * @return StatusReservas
+     */
+    public StatusReservas getReporteStatusReservaciones(){
+        List<Reservaciones>completed= metodosCrud.ReservacionStatus("completed");
+        List<Reservaciones>cancelled= metodosCrud.ReservacionStatus("cancelled");
+        return new StatusReservas(completed.size(), cancelled.size());
+    }
+    /**
+     * funcion para hacer el reporte de las reservas en el tiempo
+     * @return reservation
+     */
+    public List<Reservaciones> getReportesTiempoReservaciones(String datoA, String datoB){
+        SimpleDateFormat parser=new SimpleDateFormat ("yyyy-MM-dd");
+        Date datoUno = new Date();
+        Date datoDos = new Date();
+        try{
+            datoUno = parser.parse(datoA);
+            datoDos = parser.parse(datoB);
+        }catch(ParseException evt){
+            evt.printStackTrace();
+        }if(datoUno.before(datoDos)){
+            return metodosCrud.ReservacionTiempo(datoUno, datoDos);
+        }else{
+            return new ArrayList<>();
+        }
+    }
+    /**
+     * funcion para hacer el reporte de los mejores clientes
+     * @return client
+     */
+    public List<ContadorClientes> servicioTopClientes(){
+        return metodosCrud.getTopClientes();
+    }
+
 }
