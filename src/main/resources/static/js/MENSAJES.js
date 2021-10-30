@@ -2,7 +2,7 @@ traerInformacion();
 
 function traerInformacion(){
     $.ajax({
-        url:"http://localhost:8080/api/Message/all",
+        url:"http://129.151.101.157:8080/api/Message/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -44,7 +44,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
     if (validar()){
     $.ajax({
-        url:"http://localhost:8080/api/Message/save",
+        url:"http://129.151.101.157:8080/api/Message/save",
         type:"POST",
         data:dataToSend,
         datatype:"JSON",
@@ -71,7 +71,7 @@ function editarInformacion(){
     let dataToSend=JSON.stringify(myData);
     if (validar()){
     $.ajax({
-        url:"http://localhost:8080/api/Message/update",
+        url:"http://129.151.101.157:8080/api/Message/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -92,7 +92,7 @@ function borrarElemento(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Message/"+idElemento,
+        url:"http://129.151.101.157:8080/api/Message/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -150,7 +150,7 @@ function validar(){
 function obtenerItemEspecifico(idItem){
     $.ajax({
         dataType: 'json',
-        url:"http://localhost:8080/api/Message/"+idItem,
+        url:"http://129.151.101.157:8080/api/Message/"+idItem,
         type:'GET',
         success:function(response) {
           console.log(response);
@@ -173,7 +173,7 @@ function obtenerItemEspecifico(idItem){
   
   function traerClient(){
     $.ajax({
-        url:"http://localhost:8080/api/Client/all",
+        url:"http://129.151.101.157:8080/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -198,7 +198,7 @@ function listarClient(items){
 
 function traerQuadbike(){
     $.ajax({
-        url:"http://localhost:8080/api/Quadbike/all",
+        url:"http://129.151.101.157:8080/api/Quadbike/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){

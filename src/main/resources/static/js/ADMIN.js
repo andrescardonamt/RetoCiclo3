@@ -2,7 +2,7 @@ traerInformacion();
 
 function traerInformacion(){
     $.ajax({
-        url:"http://localhost:8080/api/Admin/all",
+        url:"http://129.151.101.157:8080/api/Admin/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -43,7 +43,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
   if (validar()){
     $.ajax({
-        url:"http://localhost:8080/api/Admin/save",
+        url:"http://129.151.101.157:8080/api/Admin/save",
         type:"POST",
         data:dataToSend,
         datatype:"JSON",
@@ -69,7 +69,7 @@ function editarInformacion(){
     let dataToSend=JSON.stringify(myData);
     if (validar()){
         $.ajax({
-            url:"http://localhost:8080/api/Admin/update",
+            url:"http://129.151.101.157:8080/api/Admin/update",
             type:"PUT",
             data:dataToSend,
             contentType:"application/JSON",
@@ -89,7 +89,7 @@ function borrarElemento(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Admin/"+idElemento,
+        url:"http://129.151.101.157:8080/api/Admin/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -143,7 +143,7 @@ function validar(){
 function obtenerItemEspecifico(idItem){
     $.ajax({
         dataType: 'json',
-        url:"http://localhost:8080/api/Admin/"+idItem,
+        url:"http://129.151.101.157:8080/api/Admin/"+idItem,
         type:'GET',
         success:function(response) {
           console.log(response);
