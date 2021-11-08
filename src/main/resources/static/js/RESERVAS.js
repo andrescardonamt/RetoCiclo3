@@ -2,7 +2,7 @@ traerInformacion();
 
 function traerInformacion(){
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/all",
+        url:"http://129.151.101.157:8080/api/Reservation/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -47,6 +47,7 @@ function guardarInformacion(){
         quadbike:{"id":$("#quadbike").val()},
     };
     let dataToSend=JSON.stringify(myData);
+<<<<<<< HEAD
     if(ValidarFechas(myData.startDate,myData.devolutionDate)){
         if (validar()){
         $.ajax({
@@ -61,6 +62,19 @@ function guardarInformacion(){
                 alert("REGISTRO CREADO!")
             }
         });
+=======
+   if (validar()){
+    $.ajax({
+        url:"http://129.151.101.157:8080/api/Reservation/save",
+        type:"POST",
+        data:dataToSend,
+        datatype:"JSON",
+        contentType:'application/json',
+        success:function(){
+            limpiarCampos();
+            traerInformacion();
+            alert("REGISTRO CREADO!")
+>>>>>>> 1d0a0078e150c5fcc1267d7d6d1d52defebb13e3
         }
     }else{
         alert("La fecha final debe ser mayor a la fecha inicial");
@@ -76,6 +90,7 @@ function editarInformacion(){
         status:$("#status").val(),        
     };
     let dataToSend=JSON.stringify(myData);
+<<<<<<< HEAD
     if(ValidarFechas(myData.startDate,myData.devolutionDate)){
         $.ajax({
             url:"http://localhost:8080/api/Reservation/update",
@@ -93,6 +108,21 @@ function editarInformacion(){
         });
     }else{
         alert("La fecha final debe ser mayor a la fecha inicial");
+=======
+    if (validar()){
+    $.ajax({
+        url:"http://129.151.101.157:8080/api/Reservation/update",
+        type:"PUT",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        success:function(respuesta){
+            limpiarCampos();
+            traerInformacion();
+            alert("REGISTRO ACTUALIZADO!")
+        }
+    });
+>>>>>>> 1d0a0078e150c5fcc1267d7d6d1d52defebb13e3
     }
 }
 
@@ -103,7 +133,7 @@ function borrarElemento(idElemento){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://localhost:8080/api/Reservation/"+idElemento,
+        url:"http://129.151.101.157:8080/api/Reservation/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
@@ -174,7 +204,7 @@ function obtenerItemEspecifico(idItem){
     alert("YA PUEDES SELECCIONAR LAS FECHAS")
     $.ajax({
         dataType: 'json',
-        url:"http://localhost:8080/api/Reservation/"+idItem,
+        url:"http://129.151.101.157:8080/api/Reservation/"+idItem,
         type:'GET',
         success:function(response) {
           console.log(response);
@@ -198,7 +228,7 @@ function obtenerItemEspecifico(idItem){
   
   function traerClient(){
     $.ajax({
-        url:"http://localhost:8080/api/Client/all",
+        url:"http://129.151.101.157:8080/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -223,7 +253,7 @@ function listarClient(items){
 
 function traerQuadbike(){
     $.ajax({
-        url:"http://localhost:8080/api/Quadbike/all",
+        url:"http://129.151.101.157:8080/api/Quadbike/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
