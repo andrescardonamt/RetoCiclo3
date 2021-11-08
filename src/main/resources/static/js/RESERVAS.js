@@ -47,11 +47,10 @@ function guardarInformacion(){
         quadbike:{"id":$("#quadbike").val()},
     };
     let dataToSend=JSON.stringify(myData);
-<<<<<<< HEAD
     if(ValidarFechas(myData.startDate,myData.devolutionDate)){
         if (validar()){
         $.ajax({
-            url:"http://localhost:8080/api/Reservation/save",
+            url:"http://129.151.101.157:8080/api/Reservation/save",
             type:"POST",
             data:dataToSend,
             datatype:"JSON",
@@ -62,19 +61,6 @@ function guardarInformacion(){
                 alert("REGISTRO CREADO!")
             }
         });
-=======
-   if (validar()){
-    $.ajax({
-        url:"http://129.151.101.157:8080/api/Reservation/save",
-        type:"POST",
-        data:dataToSend,
-        datatype:"JSON",
-        contentType:'application/json',
-        success:function(){
-            limpiarCampos();
-            traerInformacion();
-            alert("REGISTRO CREADO!")
->>>>>>> 1d0a0078e150c5fcc1267d7d6d1d52defebb13e3
         }
     }else{
         alert("La fecha final debe ser mayor a la fecha inicial");
@@ -90,10 +76,9 @@ function editarInformacion(){
         status:$("#status").val(),        
     };
     let dataToSend=JSON.stringify(myData);
-<<<<<<< HEAD
     if(ValidarFechas(myData.startDate,myData.devolutionDate)){
         $.ajax({
-            url:"http://localhost:8080/api/Reservation/update",
+            url:"http://129.151.101.157:8080/api/Reservation/update",
             type:"PUT",
             data:dataToSend,
             contentType:"application/JSON",
@@ -108,21 +93,6 @@ function editarInformacion(){
         });
     }else{
         alert("La fecha final debe ser mayor a la fecha inicial");
-=======
-    if (validar()){
-    $.ajax({
-        url:"http://129.151.101.157:8080/api/Reservation/update",
-        type:"PUT",
-        data:dataToSend,
-        contentType:"application/JSON",
-        datatype:"JSON",
-        success:function(respuesta){
-            limpiarCampos();
-            traerInformacion();
-            alert("REGISTRO ACTUALIZADO!")
-        }
-    });
->>>>>>> 1d0a0078e150c5fcc1267d7d6d1d52defebb13e3
     }
 }
 
