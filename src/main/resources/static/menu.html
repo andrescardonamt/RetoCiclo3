@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="stylesheet" type="text/css" href="/style/miestilo.css"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
         <title>RENTA DE CUATRIMOTOS</title>
     <!-- JavaScript Bundle with Popper -->
@@ -12,31 +16,100 @@
 <body>
     <div class="container">
         <h1 style="text-align:center;">RENTA DE CUATRIMOTOS</h1>
-        
-        <img src="img/quadbike.png" alt="Lista de Cuatrimotos" usemap="#workmap" width="400" height="350">
-        <map name="workmap">
-        <area shape="rect" coords="0,0,1322,1067" alt="Lista de Cuatrimotos" href="CUATRIMOTOS.html">
-        </map>
-        
-        <img src="img/clientes.png" alt="Lista de Clientes" usemap="#workmap2" width="400" height="350">
-        <map name="workmap2">
-        <area shape="rect" coords="0,0,540,351" alt="Lista de Cuatrimotos" href="CLIENTES.html">
-        </map>
 
-        <img src="img/mensajes.png" alt="Mensajes" usemap="#workmap3" width="400" height="350">
-        <map name="workmap3">
-        <area shape="rect" coords="0,0,255,255" alt="Lista de Cuatrimotos" href="MENSAJES.html">
-        </map>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-red">
+                        <div class="inner">
+                            <h3>Administradores</h3>
+                            <p>Datos de administradores</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-unlock"></i>
+                        </div>
+                        <a href="ADMIN.html" class="card-box-footer">Ver Mas <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
 
-        <ul>
-            <li><a href="ADMIN.html">LISTA DE ADMINISTRADORES</a></li>
-            <li><a href="CUATRIMOTOS.html">LISTA DE CUATRIMOTOS</a></li>
-            <li><a href="CATEGORIAS.html">LISTA DE CATEGORIAS</a></li>
-            <li><a href="CLIENTES.html">LISTA DE CLIENTES</a></li>
-            <li><a href="MENSAJES.html">LISTA DE MENSAJES</a></li>
-            <li><a href="RESERVAS.html">LISTA DE RESERVAS</a></li>
-            <li><a href="SCORE.html">LISTA DE CALIFICACIONES RESERVAS</a></li>            
-        </ul>
-    </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-blue">
+                        <div class="inner">
+                            <h3>Categorias</h3>
+                            <p>Categorias de cuatrimotos</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-tags" aria-hidden="true"></i>
+                        </div>
+                        <a href="CATEGORIAS.html" class="card-box-footer">Ver Mas <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-green">
+                        <div class="inner">
+                            <h3>Clientes</h3>
+                            <p>Información de clientes</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </div>
+                        <a href="CLIENTES.html" class="card-box-footer">Ver Mas <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-orange">
+                        <div class="inner">
+                            <h3>Cuatrimotos</h3>
+                            <p>Productos para la venta</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-motorcycle" aria-hidden="true"></i>
+                        </div>
+                        <a href="CUATRIMOTOS.html" class="card-box-footer">Ver Mas <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div> 
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-yellow">
+                        <div class="inner">
+                            <h3>Mensajes</h3>
+                            <p>Comentarios de usuarios</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <a href="MENSAJES.html" class="card-box-footer">Ver Mas <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-aguamarina">
+                        <div class="inner">
+                            <h3>Reservaciones</h3>
+                            <p>Agenda tu reservacion</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-book-open" aria-hidden="true"></i>
+                        </div>
+                        <a href="RESERVAS.html" class="card-box-footer">Ver Mas <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-gray">
+                        <div class="inner">
+                            <h3>Reportes</h3>
+                            <p>Conoce el historico de las reservaciones</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-clipboard-check" aria-hidden="true"></i>
+                        </div>
+                        <a href="REPORTES.html" class="card-box-footer">Ver Mas <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div> 
+            </div> 
+    </div>    
 </body>
 </html>

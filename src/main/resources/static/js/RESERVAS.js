@@ -6,11 +6,11 @@ function traerInformacion(){
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
+            $("#status").hide();
             console.log(respuesta);
             pintarRespuesta(respuesta);
             traerClient();
             traerQuadbike()
-            
         }
     })
 }
@@ -19,10 +19,9 @@ function traerInformacion(){
 function pintarRespuesta(items){
     let myTable="<table>";
         myTable+="<tr>";
-      
         myTable+="<td>"+"INICIO"+"</td>";
         myTable+="<td>"+"DEVOLUCION"+"</td>";
-        myTable+="<td>"+"ESTATUS"+"</td>";
+        myTable+="<td>"+"ESTADO"+"</td>";
         myTable+="<td>"+"ACCIONES"+"</td>";
         myTable+="</tr>";
     for(i=0;i<items.length;i++){
@@ -30,7 +29,6 @@ function pintarRespuesta(items){
         myTable+="<td>"+items[i].startDate+"</td>";
         myTable+="<td>"+items[i].devolutionDate+"</td>";
         myTable+="<td>"+items[i].status+"</td>";
-
         myTable+="<td> <button onclick='borrarElemento("+items[i].idReservation+")'>Eliminar</button></td>";
         myTable+="<td> <button onclick='obtenerItemEspecifico("+items[i].idReservation+")'>cargar</button></td>";
         myTable+="</tr>";
@@ -45,24 +43,27 @@ function guardarInformacion(){
         idReservation:$("#idReservation").val(),
         startDate:$("#startDate").val(),
         devolutionDate:$("#devolutionDate").val(),
-        status:$("#status").val(),
         client:{"idClient":$("#client").val()},
         quadbike:{"id":$("#quadbike").val()},
     };
     let dataToSend=JSON.stringify(myData);
-   if (validar()){
-    $.ajax({
-        url:"http://localhost:8080/api/Reservation/save",
-        type:"POST",
-        data:dataToSend,
-        datatype:"JSON",
-        contentType:'application/json',
-        success:function(){
-            limpiarCampos();
-            traerInformacion();
-            alert("REGISTRO CREADO!")
+    if(ValidarFechas(myData.startDate,myData.devolutionDate)){
+        if (validar()){
+        $.ajax({
+            url:"http://localhost:8080/api/Reservation/save",
+            type:"POST",
+            data:dataToSend,
+            datatype:"JSON",
+            contentType:'application/json',
+            success:function(){
+                limpiarCampos();
+                traerInformacion();
+                alert("REGISTRO CREADO!")
+            }
+        });
         }
-    });
+    }else{
+        alert("La fecha final debe ser mayor a la fecha inicial");
     }
 }
 
@@ -72,25 +73,26 @@ function editarInformacion(){
         idReservation:$("#idReservation").val(),
         startDate:$("#startDate").val(),
         devolutionDate:$("#devolutionDate").val(),
-        client:{"idClient":$("#client").val()},
-        quadbike:{"id":$("#quadbike").val()},
-       
+        status:$("#status").val(),        
     };
-    //console.log(myData);
     let dataToSend=JSON.stringify(myData);
-    if (validar()){
-    $.ajax({
-        url:"http://localhost:8080/api/Reservation/update",
-        type:"PUT",
-        data:dataToSend,
-        contentType:"application/JSON",
-        datatype:"JSON",
-        success:function(respuesta){
-            limpiarCampos();
-            traerInformacion();
-            alert("REGISTRO ACTUALIZADO!")
-        }
-    });
+    if(ValidarFechas(myData.startDate,myData.devolutionDate)){
+        $.ajax({
+            url:"http://localhost:8080/api/Reservation/update",
+            type:"PUT",
+            data:dataToSend,
+            contentType:"application/JSON",
+            datatype:"JSON",
+            success:function(respuesta){
+                limpiarCampos();
+                traerInformacion();
+                alert("REGISTRO ACTUALIZADO!")
+                $("#client").show();
+                $("#quadbike").show();
+            }
+        });
+    }else{
+        alert("La fecha final debe ser mayor a la fecha inicial");
     }
 }
 
@@ -177,14 +179,14 @@ function obtenerItemEspecifico(idItem){
         success:function(response) {
           console.log(response);
           var item=response;
-  
+          $("#status").show();
           $("#idReservation").val(item.idReservation);
-          $("#startDate").val(item.startDate);
-          $("#devolutionDate").val(item.devolutionDate);
+          $("#startDate").val(covertirfecha(item.startDate));
+          $("#devolutionDate").val(covertirfecha(item.devolutionDate));
           $("#status").val(item.status);
-         
-        },
-  
+          $("#client").hide();
+          $("#quadbike").hide();
+        },  
         error: function(jqXHR, textStatus, errorThrown) {
   
         }
@@ -241,3 +243,16 @@ function listarQuadbike(items){
    
     $("#quadbike").html(lista);
 }    
+
+function covertirfecha(string){
+    var info =string.split('T')
+    return info[0];
+}
+
+function ValidarFechas(startDate,devolutionDate)
+{
+var fechainicial = document.getElementById("startDate").value;
+var fechafinal = document.getElementById("devolutionDate").value;
+if(fechafinal > fechainicial)
+return true;
+}

@@ -18,8 +18,7 @@ function traerInformacion(){
 
 function pintarRespuesta(items){
     let myTable="<table>";
-        myTable+="<tr>";
-        
+        myTable+="<tr>";   
         myTable+="<td>"+"MENSAJE"+"</td>";
         myTable+="</tr>";
     for(i=0;i<items.length;i++){
@@ -58,7 +57,6 @@ function guardarInformacion(){
     }
 }
 
-
 function editarInformacion(){
     let myData={
         idMessage:$("#idMessage").val(),
@@ -67,9 +65,7 @@ function editarInformacion(){
         quadbike:{"id":$("#quadbike").val()},
        
     };
-
     let dataToSend=JSON.stringify(myData);
-    if (validar()){
     $.ajax({
         url:"http://localhost:8080/api/Message/update",
         type:"PUT",
@@ -80,11 +76,11 @@ function editarInformacion(){
             limpiarCampos();
             traerInformacion();
             alert("REGISTRO ACTUALIZADO!")
+            $("#client").show();
+            $("#quadbike").show();
         }
     });
-    }
 }
-
 
 function borrarElemento(idElemento){
     let myData={
@@ -113,18 +109,15 @@ function limpiarCampos(){
     $("#quadbike").val("")
 }
 
-
 function validaesVacio(dato){
     return !dato.trim().length;
 }
 
 function validar(){
     //obtiene valores
-   
     let messageText = $("#messageText").val();
     let client= $("#client").val()
     let quadbike= $("#quadbike").val()
-
     //valida que los campos no sean vacios
     if( validaesVacio(messageText)) {
         errores="messageText vacio<br>";
@@ -155,19 +148,14 @@ function obtenerItemEspecifico(idItem){
         success:function(response) {
           console.log(response);
           var item=response;
-  
           $("#idMessage").val(item.idMessage);
           $("#messageText").val(item.messageText);
-          $("#client").val(item.client);
-          $("#quadbike").val(item.quadbike);
-      
+          $("#client").hide();
+          $("#quadbike").hide();
         },
-  
         error: function(jqXHR, textStatus, errorThrown) {
-  
         }
     });
-  
   }
 
   
@@ -184,13 +172,10 @@ function obtenerItemEspecifico(idItem){
 }
   
 function listarClient(items){
-    var lista = '<option value="">--Selecciona un Cliente--</option>';
-        
+    var lista = '<option value="">--Selecciona un Cliente--</option>';    
     for(i=0;i<items.length;i++){
-      
         lista +="<option value="+items[i].idClient+">"+items[i].name+"</option>";
     }
-   
     $("#client").html(lista);
 }    
 
@@ -209,12 +194,9 @@ function traerQuadbike(){
 }
   
 function listarQuadbike(items){
-    var lista = '<option value="">--Selecciona una Cuatrimoto--</option>';
-        
-    for(i=0;i<items.length;i++){
-      
+    var lista = '<option value="">--Selecciona una Cuatrimoto--</option>';     
+    for(i=0;i<items.length;i++){  
     lista+="<option value="+items[i].id+">"+items[i].name+"</option>";
     }
-   
     $("#quadbike").html(lista);
 }    

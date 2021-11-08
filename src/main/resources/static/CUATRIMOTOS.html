@@ -7,32 +7,30 @@
     <title>RENTA DE CUATRIMOTOS</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/CUATRIMOTOS.js"></script>
-    <style>
-        table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-          text-align:center;
-        }
-        </style>
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="stylesheet" type="text/css" href="/style/miestilo.css"/>
 </head>
 <body>
 <h1>LISTA DE CUATRIMOTOS</h1>
-<button onclick="location.href='menu.html'">Regresar</button>
+<div class="valores">
+  <button onclick="location.href='menu.html'">Regresar</button>
+</div>
 <br>
-<br>
-<div>
+<div class="valores">
+  <div>
     <input type="hidden" id="id" placeholder="id">
     <input type="text" id="name" placeholder="name">
     <input type="text" id="brand" placeholder="brand">
     <input type="number" id="year" placeholder="year">  
     <input type="text" id="description" placeholder="description">
-    <select name="category" id="category" placeholder="category_id">
-    </select>
-  
+    <select name="category" id="category" placeholder="category_id"></select>
     <button onclick="guardarInformacion()">Guardar</button>
-    <button onclick="editarInformacion()">Editar</button>
+    <button onclick="editarInformacion()">Actualizar</button>
+  </div>
 </div>
 <br>
-<div id="resultado"></div>
+<div class="valores">
+  <div id="resultado"></div>
+</div>
 </body>
 </html>

@@ -1,0 +1,160 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30/10/2021, 6:47:20 p. m.
+    Author     : Andres Cardona
+*/
+.card-box {
+    position: relative;
+    color: #fff;
+    padding: 20px 10px 40px;
+    margin: 20px 0px;
+}
+.card-box:hover {
+    text-decoration: none;
+    color: #f1f1f1;
+}
+.card-box:hover .icon i {
+    font-size: 100px;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+.card-box .inner {
+    padding: 5px 10px 0 10px;
+}
+.card-box h3 {
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    padding: 0;
+    text-align: left;
+}
+.card-box p {
+    font-size: 15px;
+}
+.card-box .icon {
+    position: absolute;
+    top: auto;
+    bottom: 5px;
+    right: 5px;
+    z-index: 0;
+    font-size: 72px;
+    color: rgba(0, 0, 0, 0.15);
+}
+.card-box .card-box-footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    text-align: center;
+    padding: 3px 0;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-decoration: none;
+}
+.card-box:hover .card-box-footer {
+    background: rgba(0, 0, 0, 0.3);
+}
+.bg-blue {
+    background-color: #00c0ef !important;
+}
+.bg-green {
+    background-color: #00a65a !important;
+}
+.bg-orange {
+    background-color: #f39c12 !important;
+}
+.bg-red {
+    background-color: #d9534f !important;
+}
+.bg-yellow {
+    background-color: #dad731 !important;
+}
+.bg-aguamarina {
+    background-color: #1bcfa2 !important;
+}
+.bg-gray {
+    background-color: #645b64 !important;
+}
+
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #0f022080;
+}
+.topnav a {
+    float: left;
+    text-align: center;
+    display: block;
+    color: antiquewhite;
+    padding: 14px 16px;
+    font: bold 16px;
+    text-decoration: none;
+}
+  
+.topnav a:hover {
+    background-color: rgb(15, 2, 32);
+}
+  
+body > footer {
+    display: table-row;
+    font-family: "Montserrat", sans-serif;
+}
+  
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+}
+  
+header {
+    height: 50px;
+    color: rgb(15, 2, 32);
+    text-align: center;
+}
+  
+h1 {
+    font-family: "Montserrat", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    height: 1%;
+    text-align: center;
+}
+  
+footer {
+    height: 50px;
+    color: antiquewhite;
+    background-color: rgb(15, 2, 32, 0.5);
+    text-align: center;
+}
+  
+body {
+    display: table;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/img/fondo1.jpg");
+}
+  
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: rgb(15, 2, 32, 0.5);
+    color: antiquewhite;
+    text-align: center;
+}
+
+.valores {
+    display: flex;
+    justify-content: center;
+  }
+  

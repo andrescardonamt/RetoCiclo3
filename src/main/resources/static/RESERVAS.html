@@ -7,36 +7,36 @@
     <title>RENTA DE CUATRIMOTOS</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/RESERVAS.js"></script>
-    <style>
-        table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-          text-align:center;
-        }
-        </style>
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="stylesheet" type="text/css" href="/style/miestilo.css"/>
 </head>
 <body>
 <h1>RESERVAS</h1>
-<button onclick="location.href='menu.html'">Regresar</button>
+<div class="valores">
+  <button onclick="location.href='menu.html'">Regresar</button>
+</div>
 <br>
-<br>
-<div>
+<div class="valores">
+  <div>
     <input type="hidden" id="idReservation" placeholder="idReservation">
     <input type="date" id="startDate" placeholder="startDate">
     <input type="date" id="devolutionDate" placeholder="devolutionDate">
-    <br><br>
     <select name="client" id="client" placeholder="Cliente" placeholder="Cliente">
-        
     </select>
-    <br><br>
-    <select name="quadbike" id="quadbike" placeholder="Cuatrimoto" placeholder="Cuatrimoto">
-        
+    <select name="quadbike" id="quadbike" placeholder="Cuatrimoto" placeholder="Cuatrimoto">   
     </select>
-    <br><br>
+    <select id="status" placeholder="status">
+      <option value="completed">Completado</option>
+      <option value="cancelled">Cancelado</option>
+      <option value="programmed">Programado</option>
+      <option value="created">Creado</option></select>
     <button onclick="guardarInformacion()">Guardar</button>
-    <button onclick="editarInformacion()">Editar</button>
+    <button onclick="editarInformacion()">Actualizar</button>
+  </div>
 </div>
 <br>
-<div id="resultado"></div>
+<div class="valores">
+  <div id="resultado"></div>
+</div>
 </body>
 </html>
